@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <title>Week six Lab - JavaScript DOM and Arrays</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+
+        <style>
+           
+            html{
+                background-color: #688D68;
+            }
+            #frame {
+                background-color: #FFFFFF;
+                margin-top: 20px;
+                padding-top: 5px;
+                border-style: solid;
+                border-color: black;
+                border-width: 1.5px;
+                width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+                color: #4C6D4C;
+                font-family: 'Liu Jian Mao Cao', cursive;
+
+            }
+
+            #formtitle{
+                background-color: #4C6D4C;
+                color: white;
+                margin-top: 0px;
+                margin-left: 3px;
+                margin-right: 3px;
+                border-color:darkgray;
+                border-style: solid;
+                border-width: 1px;
+                padding-top:2px;
+                padding-bottom: 2px; 
+
+            }
+            fieldset{
+                margin-top: 5px;
+                background-color: white;
+                border:white
+            }
+
+            table{
+                margin: 5px;
+                padding: 5px;
+            }
+
+            td{
+                padding: 3px;
+            }
+            
+            th{
+                padding-bottom: 6px; 
+            }
+            .titles {
+                font-size:large; 
+            }
+            
+            #submitorder table {
+                margin-left: auto;
+                margin-right: auto;
+                
+            }
+        </style>
+        <script src="function.js"></script>
+    </head>
+    <body>
+        <div id="frame">
+            <fieldset id="formtitle">
+                <h2 style="text-align: center">Order Form</h2>
+            </fieldset>
+        <form name="orderForm" method="post" action="processForm.html" onsubmit="return validateForm()">
+            <fieldset id="personalinfo"> 
+                <table>
+
+                    <tr >
+                        <th colspan="2" class="titles" style="text-align: left">Personal Information</th>
+                    </tr>
+
+                    <tr>
+                        <td>First Name:</td>
+                        <td><input type="text" name="firstName" id="firstName" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name:</td>
+                        <td><input type="text" name="lastName" id="lastName" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td><input type="text" name="address" id="address" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td><input type="text" name="city" id="city" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td>Province:</td>
+                        <td><select name="province" id="province" size="1">
+                                <option disabled>Select a province</option>
+                                <option value="BC">British Columbia</option>
+                                <option value="AB">Alberta</option>
+                                <option value="SK">Saskatchewan</option>
+                                <option value="MB">Manitoba</option>
+                                <option value="ON">Ontario</option>
+                                <option value="QC">Québec</option>
+                                <option value="NB">New Brunswick</option>
+                                <option value="NS">Nova Scotia</option>
+                                <option value="PE">Prince Edward Island</option>
+                                <option value="NF">Newfoundland</option>
+                                <option value="YK">Yukon</option>
+                                <option value="NWT">Northwest Territories</option>
+                                <option value="NU">Nunavut</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Postal Code:</td>
+                        <td><input type="text" name="postalCode" id="postalCode" maxlength="6"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset id="orderinfo">
+                <table>
+                    <tr >
+                    <th colspan="2" class="titles" style="text-align: left"  >Order Information</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">Select your products:<br>
+                        <span id="productError" class="errorMessage" hidden></span></td>
+                    <td>Widget #1;
+                        <input type="text" name="widget1qty" id="widget1qty" size="1" value="0">Qty @ <strong>$5.00/ea</strong></td>
+                </tr>
+                <tr>
+                    <td>Widget #2&nbsp;
+                        <input type="text" name="widget2qty" id="widget2qty" size="1" value="0">Qty @ <strong>$15.00/ea</strong></td>
+                </tr>
+                <tr>
+                    <td>Widget #3&nbsp;
+                        <input type="text" name="widget3qty" id="widget3qty" size="1" value="0">Qty @ <strong>$25.00/ea</strong></td>
+                </tr>
+                </table>
+            </fieldset>
+            <fieldset id="shippingtype">
+            <table>
+                <tr>
+                    <td rowspan="3" class="titles"><strong>Shipping Type:</strong></td>
+                    <td>Standard ($5.00)<input type="radio" name="shippingType" id="shippingTypeStandard" value="Standard" checked></td>
+
+                </tr>
+                <tr>
+                    <td>Express ($10.00)<input type="radio" name="shippingType" id="shippingTypeExpress" value="Express"></td>
+                </tr>
+                <tr>
+                    <td>Overnight ($20.00)<input type="radio" name="shippingType" id="shippingTypeOvernight" value="Overnight"></td>
+                </tr>
+                </table>
+            </fieldset>
+            <fieldset id="submitorder">
+            <table>
+            <tr>
+                <th colspan="2" class="titles">Submit Order</th>
+            </tr>
+            <tr>
+                <td><input type="submit" name="btnSubmit" id="btnSubmit" value="Submit Order"></td>
+                <td><input type="reset" name="btnReset" id="btnReset" value="Reset Form"></td>
+            </tr>
+            </table>
+            </fieldset>
+        </form>
+        
+        </div>
+    </body>
+</html>
